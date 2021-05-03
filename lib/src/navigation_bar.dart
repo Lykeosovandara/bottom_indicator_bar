@@ -6,19 +6,19 @@ import 'navigation_bar_item.dart';
 
 // ignore: must_be_immutable
 class BottomIndicatorBar extends StatefulWidget {
-  final Color indicatorColor;
-  final Color activeColor;
+  final Color? indicatorColor;
+  final Color? activeColor;
   final Color inactiveColor;
   final bool shadow;
   int currentIndex;
-  IconData iconData;
+  IconData? iconData;
   final ValueChanged<int> onTap;
   final List<BottomIndicatorNavigationBarItem> items;
 
   BottomIndicatorBar({
-    Key key,
-    @required this.onTap,
-    @required this.items,
+    Key? key,
+    required this.onTap,
+    required this.items,
     this.activeColor,
     this.inactiveColor = Colors.grey,
     this.indicatorColor,
@@ -37,10 +37,10 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
   List<BottomIndicatorNavigationBarItem> get items => widget.items;
 
   double width = 0;
-  Color activeColor;
+  Color? activeColor;
   Duration duration = Duration(milliseconds: 170);
 
-  double _getIndicatorPosition(int index) {
+  double? _getIndicatorPosition(int index) {
     var isLtr = Directionality.of(context) == TextDirection.ltr;
     if (isLtr)
       return lerpDouble(-1.0, 1.0, index / (items.length - 1));
@@ -91,7 +91,7 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
             width: width,
             child: AnimatedAlign(
               alignment:
-                  Alignment(_getIndicatorPosition(widget.currentIndex), 0),
+                  Alignment(_getIndicatorPosition(widget.currentIndex)!, 0),
               curve: Curves.linear,
               duration: duration,
               child: Container(
