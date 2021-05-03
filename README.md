@@ -1,9 +1,9 @@
-# bottom_indicator_bar
+# bottom_indicator_bar_fork
 
 A flutter bottom tab with indicator, similar to the bottom tab of facebook app 
 
 
-![bottom_indicator_bar Gif](screenshot.gif "bottom_indicator_bar")
+![bottom_indicator_bar_fork Gif](screenshot.gif "bottom_indicator_bar_fork")
 
 
 ## Getting Started
@@ -13,7 +13,7 @@ Add the dependency in `pubspec.yaml`:
 ```yaml
 dependencies:
   ...
-  bottom_indicator_bar: lastest_version
+  bottom_indicator_bar_fork: lastest_version
 ```
 
 ## Basic Usage

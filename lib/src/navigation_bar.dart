@@ -66,7 +66,7 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
         color: Theme.of(context).cardColor,
         boxShadow: widget.shadow
             ? [
-                BoxShadow(color: Colors.black12, blurRadius: 10),
+                BoxShadow(color: Colors.black12, blurRadius: 1),
               ]
             : null,
       ),
@@ -102,8 +102,8 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
                     height: INDICATOR_HEIGHT,
                   ),
                   Positioned(
-                    left: 55,
-                    right: 55,
+                    left: 25,
+                    right: 25,
                     child: Container(
                       decoration: BoxDecoration(
                           color: widget.indicatorColor ?? activeColor,

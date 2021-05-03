@@ -23,7 +23,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  bottom_indicator_bar:
+  bottom_indicator_bar_fork:
     path: ../
 
 
