@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class BottomIndicatorNavigationBarItem {
-  final Icon icon;
+  final Widget icon;
   final Color backgroundColor;
   final String label;
 

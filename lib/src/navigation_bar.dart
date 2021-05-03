@@ -32,7 +32,7 @@ class BottomIndicatorBar extends StatefulWidget {
 
 class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
   static const double BAR_HEIGHT = 60;
-  static const double INDICATOR_HEIGHT = 2;
+  static const double INDICATOR_HEIGHT = 3;
 
   List<BottomIndicatorNavigationBarItem> get items => widget.items;
 
@@ -94,10 +94,28 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
                   Alignment(_getIndicatorPosition(widget.currentIndex)!, 0),
               curve: Curves.linear,
               duration: duration,
-              child: Container(
-                color: widget.indicatorColor ?? activeColor,
-                width: width / items.length,
-                height: INDICATOR_HEIGHT,
+              child: Stack(
+                children: [
+                  Container(
+                    // color: widget.indicatorColor ?? activeColor,
+                    width: width / items.length,
+                    height: INDICATOR_HEIGHT,
+                  ),
+                  Positioned(
+                    left: 55,
+                    right: 55,
+                    child: Container(
+                      decoration: BoxDecoration(
+                          color: widget.indicatorColor ?? activeColor,
+                          borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(10),
+                            bottomRight: Radius.circular(10),
+                          )),
+                      width: width / items.length,
+                      height: INDICATOR_HEIGHT,
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -125,10 +143,7 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Icon(
-            item.icon.icon,
-            color: color,
-          ),
+          item.icon,
           Text(
             item.label,
             style: TextStyle(color: color),
