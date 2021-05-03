@@ -11,7 +11,7 @@ class BottomIndicatorBar extends StatefulWidget {
   final Color inactiveColor;
   final bool shadow;
   int currentIndex;
-  Widget? icon;
+  String? icon;
   final ValueChanged<int> onTap;
   final List<BottomIndicatorNavigationBarItem> items;
 
@@ -143,7 +143,10 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          item.icon,
+          ImageIcon(
+            AssetImage(item.icon),
+            color: color,
+          ),
           Text(
             item.label,
             style: TextStyle(color: color),

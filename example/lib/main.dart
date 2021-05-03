@@ -20,9 +20,9 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<BottomIndicatorNavigationBarItem> items = [
-    BottomIndicatorNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+    BottomIndicatorNavigationBarItem(icon: "assets/icon.png", label: "Search"),
     BottomIndicatorNavigationBarItem(
-        icon: Icon(Icons.settings), label: "Settings"),
+        icon: "assets/icon.png", label: "Settings"),
   ];
 
   @override
