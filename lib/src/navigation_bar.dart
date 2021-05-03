@@ -11,7 +11,7 @@ class BottomIndicatorBar extends StatefulWidget {
   final Color inactiveColor;
   final bool shadow;
   int currentIndex;
-  IconData? iconData;
+  Widget? icon;
   final ValueChanged<int> onTap;
   final List<BottomIndicatorNavigationBarItem> items;
 
@@ -51,7 +51,7 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
   @override
   void initState() {
     super.initState();
-    widget.iconData = widget.items[0].icon;
+    widget.icon = widget.items[0].icon;
   }
 
   @override
@@ -71,7 +71,7 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
             : null,
       ),
       child: Stack(
-        overflow: Overflow.visible,
+        clipBehavior: Clip.antiAlias,
         children: <Widget>[
           Positioned(
             top: INDICATOR_HEIGHT,
@@ -108,21 +108,16 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
 
   _select(int index, BottomIndicatorNavigationBarItem item) {
     widget.currentIndex = index;
-    widget.iconData = item.icon;
+    widget.icon = item.icon;
     widget.onTap(widget.currentIndex);
 
     setState(() {});
   }
 
-  Widget _setIcon(BottomIndicatorNavigationBarItem item) {
-    return Icon(
-      item.icon,
-      color: widget.iconData == item.icon ? activeColor : widget.inactiveColor,
-      size: 35.0,
-    );
-  }
-
-  Widget _buildItemWidget(BottomIndicatorNavigationBarItem item, bool isSelected) {
+  Widget _buildItemWidget(
+      BottomIndicatorNavigationBarItem item, bool isSelected) {
+    final color =
+        isSelected ? activeColor : Theme.of(context).unselectedWidgetColor;
     return Container(
       color: item.backgroundColor,
       height: BAR_HEIGHT,
@@ -130,7 +125,14 @@ class _BottomIndicatorBarState extends State<BottomIndicatorBar> {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          _setIcon(item),
+          Icon(
+            item.icon.icon,
+            color: color,
+          ),
+          Text(
+            item.label,
+            style: TextStyle(color: color),
+          )
         ],
       ),
     );

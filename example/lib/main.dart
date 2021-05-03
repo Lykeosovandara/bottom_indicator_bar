@@ -20,11 +20,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final List<BottomIndicatorNavigationBarItem> items = [
-    BottomIndicatorNavigationBarItem(icon: Icons.home),
-    BottomIndicatorNavigationBarItem(icon: Icons.search),
-    BottomIndicatorNavigationBarItem(icon: Icons.settings),
+    BottomIndicatorNavigationBarItem(icon: Icon(Icons.search), label: "Search"),
+    BottomIndicatorNavigationBarItem(
+        icon: Icon(Icons.settings), label: "Settings"),
   ];
-
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +35,7 @@ class _HomePageState extends State<HomePage> {
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,
-          children: <Widget>[
-          ],
+          children: <Widget>[],
         ),
       ),
       bottomNavigationBar: BottomIndicatorBar(
